@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MtG Rulings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.3/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/autocard.css" />
+    <script src="js/autocard.js"></script>
+    <script>
+    function copy(event) {
+      var id = event.target.closest(".card-body").id;
+      var url = new URL("#" + id, window.location);
+      navigator.clipboard.writeText(url);
+      console.log(url);
+    }
+
+    function onLoad() {
+      document.querySelectorAll(".copy").forEach(item => {
+        item.addEventListener("click", copy);
+      });
+    }
+    </script>
+    <style>
+      auto-card a, auto-card a:hover {
+        color: inherit;
+      }
+      /* For small screen */
+      .row:nth-child(even){
+        background-color: #dcdcdc;
+      }
+      .row:nth-child(odd){
+        background-color: #eeeeee;
+      }
+      /* Move down content because we have a fixed navbar that is 3.5rem tall */
+      body {
+        padding-top: 3.5rem;
+      }
+    </style>
+  </head>
+  <body onload="onLoad()">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Magic: the Gathering - Quick Rulings Reference</a>
+    </nav>
+    <main role="main" class="container">
+      <div class="row my-3">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body" id="object-permanence">
+              <button type="button" class="copy btn btn-sm btn-light float-right">📋</button>
+              <h5 class="card-title">What happens to objects after a player dies?</h5>
+              <p class="card-text">
+                <b>800.4a</b>
+                When a player leaves the game, all objects (see rule 109) owned by that player leave the game and
+                <u>any effects which give that player control of any objects or players end</u>
+                . Then, if that player controlled any objects on the stack not represented by cards, those objects cease to exist.
+                <u>Then, if there are any objects still controlled by that player, those objects are exiled</u>
+                . This is not a state-based action. It happens as soon as the player leaves the game. If the player who left the game had priority at the time they left, priority passes to the next player in turn order who’s still in the game.
+                <a href="https://yawgatog.com/resources/magic-rules/#R8004a" target="_blank">🔗</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 py-3 px-1">
+          <ul>
+            <li>All objects  that player <b>owns</b> <u>cease to exist</u>.
+            <ul><li>creatures, tokens, spells, copies of spells, everything.</li></ul>
+            </li>
+            <li>All <b>control-change effects</b> giving that player control of any objects end. The affected objects immediately <u>become controlled by another player as appropriate</u> (usually the previous controller).
+              <ul><li>e.g.,
+              <span class="badge badge-primary"><auto-card>Blatant Thievery</auto-card></span>
+              ,
+              <span class="badge badge-primary"><auto-card>Sudden Substitution</auto-card></span>
+              ,
+              <span class="badge badge-primary"><auto-card>Agent of Treachery</auto-card></span>
+              </li></ul>
+            </li>
+            <li>All <b>objects that player still controls</b> (because they obtained control of the object without the use of a control-change effect) are <u>exiled</u>.
+<ul><li>e.g., by using a reanimation spell like
+              <span class="badge badge-dark"><auto-card>Rise of the Dark Realms</auto-card></span>
+              </li></ul>
+            </li>
+          </ul>
+        </p>
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body" id="death-company">
+            <button type="button" class="copy btn btn-sm btn-light float-right">📋</button>
+            <h5 class="card-title">What does a dying object see?</h5>
+            <p class="card-text">
+              <b>603.2c</b>
+              An ability triggers only once each time its trigger event occurs. However, it can trigger repeatedly if one event contains multiple occurrences.
+              <a href="https://yawgatog.com/resources/magic-rules/#R6032a" target="_blank">🔗</a>
+            </p>
+            <p class="card-text">
+              <b>603.6c example</b>
+              <em>Two creatures are on the battlefield along with an artifact that has the ability “Whenever a creature dies, you gain 1 life.” Someone plays a spell that destroys all artifacts, creatures, and enchantments. The artifact’s ability triggers twice, even though the artifact goes to its owner’s graveyard at the same time as the creatures.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 py-3 px-1">Creatures that die simultaneously (e.g., boardwiped) see themselves and each other die and will trigger effects accordingly. (eg,
+        <span class="badge badge-dark"><auto-card>Syr Konrad, the Grim</auto-card></span>
+        )
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body" id="monarch-succession">
+            <button type="button" class="copy btn btn-sm btn-light float-right">📋</button>
+            <h5 class="card-title">What happens if the monarch dies?</h5>
+            <p class="card-text">
+              <b>720.4</b>
+              If the monarch leaves the game, the active player becomes the monarch at the same time as that player leaves the game. If the active player is leaving the game or if there is no active player, the next player in turn order becomes the monarch.
+              <a href="https://yawgatog.com/resources/magic-rules/#R7204" target="_blank">🔗</a>
+            </p>
+            <p class="card-text">
+              <b>Monarch Ruling</b>
+              Once an effect makes one player the monarch, the game will have exactly one monarch from that point forward
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 py-3 px-1">
+        <ul>
+          <li>If the monarch leaves the game, then
+            <ul><li>the <b>turn player</b> becomes the new monarch.</li></ul></li>
+          <li>Else if the turn player was the monarch, then
+            <ul><li>the <b>next player in turn order</b> becomes the new monarch.</li></ul></li>
+          <li>Else if the turn player is unable to become the monarch, then
+            <ul><li>the behaviour is <b>undefined</b> (presumably no player is the monarch but the ruling requires exactly one monarch).</li>
+            <li>e.g., due to
+        <span class="badge badge-warning"><auto-card>Jared Carthalion, True Heir</auto-card></span></li></ul></li>
+            
+        </ul>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
