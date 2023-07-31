@@ -138,6 +138,50 @@
         </ul>
       </div>
     </div>
+    <div class="row my-3">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body" id="conditional-end-step-triggers">
+            <button type="button" class="copy btn btn-sm btn-light float-right">📋</button>
+            <h5 class="card-title">When do conditional triggers need to be satisfied?</h5>
+            <p class="card-text">
+              <b>603.4.</b> A triggered ability may read "When/Whenever/At [trigger event], if [condition], [effect]." When the trigger event occurs, the ability checks whether the stated condition is true. The ability triggers only if it is; otherwise it does nothing. If the ability triggers, it checks the stated condition again as it resolves. If the condition isn't true at that time, the ability is removed from the stack and does nothing. Note that this mirrors the check for legal targets. This rule is referred to as the "intervening 'if' clause" rule. (The word "if" has only its normal English meaning anywhere else in the text of a card; this rule only applies to an "if" that immediately follows a trigger condition.)
+              <a href="https://yawgatog.com/resources/magic-rules/#R6034" target="_blank">🔗</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 py-3 px-1">
+        <p class="card-text">
+          This means that a triggered ability cannot satisfy the conditions of another ability with the same trigger event.
+        </p>
+        <p class="card-text">
+          e.g., <b><auto-card>Regna, the Redeemer</auto-card> Ruling</b>
+          If your team didn’t gain life during the turn before the end step begins, Regna’s last ability won’t trigger at all. Gaining life during the end step won’t cause the ability to trigger. 
+        </p>
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body" id="etb-attacking">
+            <button type="button" class="copy btn btn-sm btn-light float-right">📋</button>
+            <h5 class="card-title">Does ETBing attacking induce on-attack triggers?</h5>
+            <p class="card-text">
+              No. Although the creature you put onto the battlefield is an attacking creature, it was never declared as an attacking creature. This means that abilities that trigger whenever a creature attacks won't trigger when it enters the battlefield attacking.
+            </p>
+            <p class="card-text">
+              Any effects that say that the new creature can’t attack (such as that of <span class="badge badge-primary"><auto-card>Propaganda</auto-card></span>, or if you get a creature with defender) affect only the declaration of attackers. They won’t stop the creature you find from entering the battlefield attacking. 
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 py-3 px-1">
+        <p class="card-text">
+          e.g., if you attack with <span class="badge badge-warning"><auto-card>Shadowfax, Lord of Horses</auto-card></span> and put <span class="badge badge-success"><auto-card>Motivated Pony</auto-card></span> onto the battlefield tapped and attacking, your attacking creatures will not get +1/+1 (at least not during that combat phase).
+        </p>
+      </div>
+    </div>
   </main>
 </body>
 </html>
